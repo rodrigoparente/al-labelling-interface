@@ -23,6 +23,11 @@ app.add_middleware(
 )
 
 
+@app.get("/")
+async def root():
+    return {"message": "Hello World"}
+
+
 @app.on_event("startup")
 async def startup_db_client():
     app.mongodb_client = AsyncIOMotorClient(settings.MONGODB_URL)
