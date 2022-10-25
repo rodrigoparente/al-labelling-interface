@@ -9,4 +9,11 @@ db-service:
 run-backend: db-service
 	uvicorn main:app --app-dir app/backend --reload
 
-run-frontend:
+npm-install:
+	npm ci --prefix app/frontend
+
+run-dev:
+	npm run dev --prefix app/frontend
+	
+run-build:
+	npm run build --prefix app/frontend
