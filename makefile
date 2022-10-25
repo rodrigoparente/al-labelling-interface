@@ -9,7 +9,7 @@ run-backend:
 	uvicorn main:app --app-dir app/backend --reload
 
 npm-install:
-	npm install app/frontend
+	npm ci --prefix app/frontend
 
 run-dev:
 	npm run dev --prefix app/frontend
