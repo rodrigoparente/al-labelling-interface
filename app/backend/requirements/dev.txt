@@ -1,0 +1,14 @@
+-r common.txt
+
+# code quality
+# ------------------------------------------------------------------------------
+black                                   # https://github.com/ambv/black
+flake8                                  # https://github.com/PyCQA/flake8
+pre-commit                              # https://github.com/pre-commit/pre-commit
+
+# debug
+# ------------------------------------------------------------------------------
+ipdb                                    # https://github.com/gotcha/ipdb
+
+# test
+# ------------------------------------------------------------------------------
