@@ -1,20 +1,46 @@
 version: "3.8"
 
 services:
-  mongodb:
-    image: mongo
+  alli_db:
+    container_name: alli_db
+    image: mongo:6.0.2
     ports:
-      - 0.0.0.0:27017:27017
-    # environment:
-    #   MONGO_INITDB_DATABASE: ${MONGO_DATABASE}
-    #   MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USERNAME}
-    #   MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
+      - ${DB_EXTERNAL_PORT}:27017
+    env_file:
+      - .env
     volumes:
-      - mongodb_data:/data/db
-      - mongodb_config:/data/configdb
+      - alli_db_data:/data/db
+      - alli_db_config:/data/configdb
+
+  alli_backend:
+    container_name: alli_backend
+    image: alli_backend:${ENV_NAME}
+    build:
+      context: backend
+      args:
+        ENV_NAME: ${ENV_NAME}
+    ports:
+      - ${BACKEND_EXTERNAL_PORT}:8000
+    env_file:
+      - .env
+    command: ${BACKEND_CMD}
+    volumes:
+      - ./backend/:/app/
+    depends_on:
+      - alli_db
+
+  alli_frontend:
+    container_name: alli_frontend
+    image: node:16-alpine
+    ports:
+      - ${FRONTEND_EXTERNAL_PORT}:3000
+    command: npm run dev
+    volumes:
+      - ./frontend/:/app/
+    working_dir: /app/
 
 volumes:
-  mongodb_data:
+  alli_db_data:
     driver: local
-  mongodb_config:
+  alli_db_config:
     driver: local
