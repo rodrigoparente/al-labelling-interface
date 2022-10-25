@@ -1,0 +1,15 @@
+# framework
+# ------------------------------------------------------------------------------
+fastapi==0.85.1                         # https://github.com/tiangolo/fastapi
+mangum==0.15.1                          # https://github.com/jordaneremieff/mangum
+passlib[bcrypt]
+python-jose[cryptography]
+python-multipart
+uvicorn[standard]                       # https://github.com/encode/uvicorn
+
+# database
+# ------------------------------------------------------------------------------
+motor==3.0.0                            # https://github.com/mongodb/motor
+
+# ------------------------------------------------------------------------------
+python-decouple==3.6                    # https://github.com/henriquebastos/python-decouple
