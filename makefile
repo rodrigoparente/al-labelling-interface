@@ -1,12 +1,12 @@
 environment:
-	pip install -r app/backend/requirements.txt
+	pip install -r app/backend/requirements/dev.txt
 	npm install app/frontend
 
-mongodb:
-	docker-compose -p al-labelling-interface -f app/docker-compose.yml up -d
+db-service:
+	$ docker-compose -p ali -f app/docker-compose.yml up -d mongodb
+	$ docker-compose -f app/docker-compose.yml ps
 
-run-backend:
+run-backend: db-service
 	uvicorn main:app --app-dir app/backend --reload
 
 run-frontend:
-	
