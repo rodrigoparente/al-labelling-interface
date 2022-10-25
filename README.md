@@ -8,27 +8,29 @@ To use this project, users must have python version 3.8 or higher and node versi
 
 Technologies used in the backend:
 
- - [FastAPI](https://fastapi.tiangolo.com/)
- - [Motor](https://motor.readthedocs.io/en/stable/) (MongoDB)
- - [Uvicorn](https://www.uvicorn.org/)
+- [FastAPI](https://fastapi.tiangolo.com/)
+- [Motor](https://motor.readthedocs.io/en/stable/) (MongoDB)
+- [Uvicorn](https://www.uvicorn.org/)
 
 Technologies used in the frontend:
 
- - [Typescript](https://www.typescriptlang.org/)
- - [React](https://reactjs.org/)
- - [Tailwind](https://tailwindcss.com/)
- - [Vite](https://vitejs.dev/)
+- [Typescript](https://www.typescriptlang.org/)
+- [React](https://reactjs.org/)
+- [Tailwind](https://tailwindcss.com/)
+- [Vite](https://vitejs.dev/)
 
 Technologies used in the infrastructure:
- 
- - [Docker](https://www.docker.com/)
+
+- [Docker](https://www.docker.com/)
 
 The installation and running process is quite simple. The user must run the following commands in the terminal:
 
- - ``make environment``: install project dependencies
- - ``make mongodb``: initialize the database
- - ``make run-backend``: run the backend server
- - ``make run-frontend``: run the frontend server
+- `make environment`: install project dependencies
+- `make mongodb`: initialize the database
+- `make run-backend`: run the backend server
+- `make npm-install`: install node packages
+- `make run-dev`: run the frontend development server
+- `make run-build`: build the frontend production server
 
 ## License
 

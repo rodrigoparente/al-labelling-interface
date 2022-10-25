@@ -8,5 +8,11 @@ mongodb:
 run-backend:
 	uvicorn main:app --app-dir app/backend --reload
 
-run-frontend:
+npm-install:
+	npm install app/frontend
+
+run-dev:
+	npm run dev --prefix app/frontend
 	
+run-build:
+	npm run build --prefix app/frontend
