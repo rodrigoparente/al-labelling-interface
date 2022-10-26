@@ -8,6 +8,15 @@ from pydantic import BaseModel
 from pydantic import Field
 
 
+class Token(BaseModel):
+    access_token: str
+    token_type: str
+
+
+class TokenData(BaseModel):
+    email: Optional[str] = None
+
+
 class User(BaseModel):
     id: str = Field(default_factory=uuid.uuid4, alias="_id")
     created: Optional[datetime] = Field(default_factory=datetime.now)
