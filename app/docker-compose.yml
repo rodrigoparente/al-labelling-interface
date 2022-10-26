@@ -1,18 +1,18 @@
 version: "3.8"
 
 services:
-  alli_db:
-    container_name: alli_db
+  mongodb:
+    container_name: alli_mongodb
     image: mongo:6.0.2
     ports:
       - ${DB_EXTERNAL_PORT}:27017
     env_file:
-      - .env
+      - ./backend/.env
     volumes:
-      - alli_db_data:/data/db
-      - alli_db_config:/data/configdb
+      - mongodb_data:/data/db
+      - mongodb_config:/data/configdb
 
-  alli_backend:
+  backend:
     container_name: alli_backend
     image: alli_backend:${ENV_NAME}
     build:
@@ -22,14 +22,14 @@ services:
     ports:
       - ${BACKEND_EXTERNAL_PORT}:8000
     env_file:
-      - .env
+      - ./backend/.env
     command: ${BACKEND_CMD}
     volumes:
       - ./backend/:/app/
     depends_on:
-      - alli_db
+      - mongodb
 
-  alli_frontend:
+  frontend:
     container_name: alli_frontend
     image: node:16-alpine
     ports:
@@ -40,7 +40,7 @@ services:
     working_dir: /app/
 
 volumes:
-  alli_db_data:
+  mongodb_data:
     driver: local
-  alli_db_config:
+  mongodb_config:
     driver: local
