@@ -6,8 +6,8 @@ from mangum import Mangum
 from motor.motor_asyncio import AsyncIOMotorClient
 
 # project
-import settings
 from accounts.routers import accounts_router
+from alli import settings
 
 # settings
 app = FastAPI()
