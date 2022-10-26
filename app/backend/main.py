@@ -7,6 +7,7 @@ from motor.motor_asyncio import AsyncIOMotorClient
 
 # project
 import settings
+from accounts.routers import accounts_router
 
 # settings
 app = FastAPI()
@@ -22,10 +23,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
+# routers
+app.include_router(accounts_router, prefix="/api")
 
 
 @app.on_event("startup")
