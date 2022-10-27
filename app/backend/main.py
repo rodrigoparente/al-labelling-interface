@@ -7,6 +7,7 @@ from motor.motor_asyncio import AsyncIOMotorClient
 
 # project
 from accounts.routers import accounts_router
+from active_model.routes import active_router
 from alli import settings
 
 # settings
@@ -25,6 +26,7 @@ app.add_middleware(
 
 # routers
 app.include_router(accounts_router, prefix="/api")
+app.include_router(active_router, prefix="/api")
 
 
 @app.on_event("startup")
