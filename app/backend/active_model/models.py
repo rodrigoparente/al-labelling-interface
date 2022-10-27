@@ -26,7 +26,7 @@ class InstanceModel(BaseModel):
         json_encoders = {ObjectId: str}
         schema_extra = {
             "example": {
-                "dataset_name": "iris flowers dataset",
+                "dataset_name": "iris-dataset",
                 "labels": ["iris-setosa", "iris-versicolour", "iris-virginica"],
                 "columns": ["sepal-length", "sepal-width", "petal-length", "petal-width"],
                 "entries": [

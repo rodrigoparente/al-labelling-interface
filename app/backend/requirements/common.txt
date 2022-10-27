@@ -13,3 +13,4 @@ motor==3.0.0                            # https://github.com/mongodb/motor
 
 # ------------------------------------------------------------------------------
 python-decouple==3.6                    # https://github.com/henriquebastos/python-decouple
+pandas                                  # https://github.com/pandas-dev/pandas
