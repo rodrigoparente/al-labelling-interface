@@ -38,6 +38,16 @@ services:
     volumes:
       - ./frontend/:/app/
     working_dir: /app/
+  
+  mongodb_gui:
+    container_name: alli_mongodb_gui
+    image: mongo-express
+    ports:
+      - "${DB_GUI_EXTERNAL_PORT}:8081"
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=alli_mongodb
+    depends_on:
+      - mongodb
 
 volumes:
   mongodb_data:
